@@ -15,6 +15,9 @@ function loadevents() {
 
   // Delete Task
   list.addEventListener('click', deletetask)
+
+  // clear task list
+  clear.addEventListener('click', clearlsit)
 }
 loadevents()
 
@@ -45,6 +48,17 @@ function deletetask(e) {
       confirm(`Do you want to Delete ${e.target.parentElement.textContent} ?`)
     ) {
       e.target.parentElement.remove()
+    }
+  }
+}
+
+// clear task list
+function clearlsit(e) {
+  if (confirm('Do you want to delete all tasks ?')) {
+    // Note :)
+    // faster than list.innerHtml = ""
+    while (list.firstElementChild) {
+      list.firstElementChild.remove()
     }
   }
 }
