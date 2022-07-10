@@ -8,9 +8,13 @@ const task = document.getElementById('task'),
 
 // create function for all events
 function loadevents() {
+  // ADD Task
   // Note :)
   // submit event handle form element
   add.addEventListener('click', addtask)
+
+  // Delete Task
+  list.addEventListener('click', deletetask)
 }
 loadevents()
 
@@ -32,4 +36,15 @@ function addtask(e) {
     task.value = ''
   }
   e.preventDefault()
+}
+
+// Delete task from list
+function deletetask(e) {
+  if (e.target.classList.contains('fa-remove')) {
+    if (
+      confirm(`Do you want to Delete ${e.target.parentElement.textContent} ?`)
+    ) {
+      e.target.parentElement.remove()
+    }
+  }
 }
