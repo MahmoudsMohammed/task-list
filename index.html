@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize -->
+    <link rel="stylesheet" href="style/normalize.css" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font icon -->
+    <link rel="stylesheet" href="style/all.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="style/app.css">
+    <title>Task-list</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Task List</h1>
+      <form action="">
+        <input type="text" id="task" placeholder="New Task">
+        <input type="submit" value="ADD TASK" id="add">
+      </form>
+      <div class="tasks">
+        <h2>Tasks</h2>
+        <input type="text" id="filter" placeholder="Filter Tasks">
+        <ul class="collection"></ul>
+        <button>CLEAR TASKS</button>
+      </div>
+    </div>
+    <!-- script file -->
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

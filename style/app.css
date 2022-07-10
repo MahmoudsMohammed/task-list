@@ -1,0 +1,100 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) , url("../static/bg.jpg");
+  background-size: cover;
+}
+.container {
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: white;
+  border-radius: 10px;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* end main rules */
+
+/* ADD Task */
+
+.container h1 {
+  margin: 0px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Note :) */
+/* can't use befor or after with not container elements */
+
+#task{
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 5px;
+}
+#task:focus{
+  border-bottom-color: #10cab7;
+  outline: none;
+}
+#add{
+  border: none;
+  padding: 15px 20px;
+  color: white;
+  background-color: #10cab7;
+  border-radius: 5px;
+}
+form{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 50px;
+}
+
+/* List Of Tasks */
+
+.tasks{
+  padding-top: 50px;
+}
+.tasks h2{
+  margin: 0px;
+  margin-bottom: 15px;
+}
+#filter{
+  display: block;
+  width: 100%;
+  margin-bottom: 25px;
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 5px;
+}
+#filter:focus{
+  border-bottom-color: #10cab7;
+  outline: none;
+}
+ul + button{
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+}
