@@ -18,6 +18,9 @@ function loadevents() {
 
   // clear task list
   clear.addEventListener('click', clearlsit)
+
+  // filter task
+  filter.addEventListener('keyup',filtertasks)
 }
 loadevents()
 
@@ -61,4 +64,17 @@ function clearlsit(e) {
       list.firstElementChild.remove()
     }
   }
+}
+
+// filter tasks 
+function filtertasks(e){
+  const text = e.target.value.toUpperCase();
+  const tasks = document.querySelectorAll('li');
+  tasks.forEach((t)=>{
+    if(t.textContent.toUpperCase().includes(text)){
+      t.style.display = "flex"
+    }else{
+      t.style.display = "none"
+    }
+  })
 }
