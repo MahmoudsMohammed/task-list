@@ -20,7 +20,10 @@ function loadevents() {
   clear.addEventListener('click', clearlsit)
 
   // filter task
-  filter.addEventListener('keyup',filtertasks)
+  filter.addEventListener('keyup', filtertasks)
+
+  // load taks from ls
+  document.addEventListener('DOMContentLoaded', loadtasks)
 }
 loadevents()
 
@@ -67,32 +70,46 @@ function clearlsit(e) {
   }
 }
 
-// filter tasks 
-function filtertasks(e){
-  const text = e.target.value.toUpperCase();
-  const tasks = document.querySelectorAll('li');
-  tasks.forEach((t)=>{
-    if(t.textContent.toUpperCase().includes(text)){
-      t.style.display = "flex"
-    }else{
-      t.style.display = "none"
+// filter tasks
+function filtertasks(e) {
+  const text = e.target.value.toUpperCase()
+  const tasks = document.querySelectorAll('li')
+  tasks.forEach((t) => {
+    if (t.textContent.toUpperCase().includes(text)) {
+      t.style.display = 'flex'
+    } else {
+      t.style.display = 'none'
     }
   })
 }
 
 // check for tasks in local storage
-function checktasks(){
-  let tasks;
-  if(localStorage.getItem('tasks') === null){
-    tasks = [];
-  }else{
+function checktasks() {
+  let tasks
+  if (localStorage.getItem('tasks') === null) {
+    tasks = []
+  } else {
     tasks = JSON.parse(localStorage.getItem('tasks'))
   }
-  return tasks;
+  return tasks
 }
 // Add task to loacl storage
-function addtolocalstorage(task){
-  const tasks = checktasks();
-  tasks.push(task);
-  localStorage.setItem('tasks',JSON.stringify(tasks));
+function addtolocalstorage(task) {
+  const tasks = checktasks()
+  tasks.push(task)
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
+// load tasks from ls
+function loadtasks(e) {
+  const tasks = checktasks()
+  tasks.forEach((t) => {
+    const item = document.createElement('li'),
+      icon = document.createElement('i')
+    icon.className = 'fa fa-remove'
+    item.textContent = t
+    item.appendChild(icon)
+    // add item to list
+    list.appendChild(item)
+  })
 }
