@@ -55,6 +55,7 @@ function deletetask(e) {
       confirm(`Do you want to Delete ${e.target.parentElement.textContent} ?`)
     ) {
       e.target.parentElement.remove()
+      deletefromls(e.target.parentElement.textContent)
     }
   }
 }
@@ -112,4 +113,11 @@ function loadtasks(e) {
     // add item to list
     list.appendChild(item)
   })
+}
+
+// delete task from ls
+function deletefromls(task) {
+  const tasks = checktasks()
+  tasks.splice(tasks.indexOf(task), 1)
+  localStorage.setItem('tasks', JSON.stringify(tasks))
 }
