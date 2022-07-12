@@ -36,6 +36,7 @@ function addtask(e) {
       icon = document.createElement('i')
     icon.className = 'fa fa-remove'
     item.textContent = task.value
+    addtolocalstorage(task.value)
     item.appendChild(icon)
     // add item to list
     list.appendChild(item)
@@ -77,4 +78,21 @@ function filtertasks(e){
       t.style.display = "none"
     }
   })
+}
+
+// check for tasks in local storage
+function checktasks(){
+  let tasks;
+  if(localStorage.getItem('tasks') === null){
+    tasks = [];
+  }else{
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+  return tasks;
+}
+// Add task to loacl storage
+function addtolocalstorage(task){
+  const tasks = checktasks();
+  tasks.push(task);
+  localStorage.setItem('tasks',JSON.stringify(tasks));
 }
